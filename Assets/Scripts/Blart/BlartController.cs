@@ -12,10 +12,24 @@ public class BlartController : MonoBehaviour
     private float moveInput;
     private float turnInput;
 
+    public float jumpforce = 1;
+
+    private bool jumpInput;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = maxAngularSpeed * Mathf.Deg2Rad; // Convert to radians/sec
+    }
+
+    void Update()
+    {
+        jumpInput = Input.GetKeyDown(KeyCode.Space);
+        if (jumpInput)
+        {
+            rb.AddForce(Vector3.up * jumpforce);
+            Debug.Log("fuck");
+        }
     }
 
     void FixedUpdate()
@@ -23,6 +37,8 @@ public class BlartController : MonoBehaviour
         // Get player input
         moveInput = Input.GetAxis("Vertical");   // W/S or Up/Down
         turnInput = Input.GetAxis("Horizontal"); // A/D or Left/Right
+
+        
 
         // Apply directional acceleration (forward/backward)
         Vector3 desiredAcceleration = transform.forward * moveInput * acceleration;

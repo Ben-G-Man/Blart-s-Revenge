@@ -4959,7 +4959,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.19
+  m_Radius: 0.3
   m_Height: 1.28
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -4976,6 +4976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlesystem: {fileID: 235352981751648652}
+  speed: 5
 --- !u!54 &4679258300516021415
 Rigidbody:
   m_ObjectHideFlags: 0
