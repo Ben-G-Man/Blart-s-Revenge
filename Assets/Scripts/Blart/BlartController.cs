@@ -28,7 +28,6 @@ public class BlartController : MonoBehaviour
         if (jumpInput)
         {
             rb.AddForce(Vector3.up * jumpforce);
-            Debug.Log("fuck");
         }
     }
 
