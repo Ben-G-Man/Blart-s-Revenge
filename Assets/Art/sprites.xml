@@ -1,0 +1,6 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="fella.jpg" x="202" y="0" width="177" height="285"/>
+	<SubTexture name="fella_back.jpg" x="381" y="0" width="173" height="280"/>
+	<SubTexture name="fella_happy.jpg" x="556" y="0" width="173" height="280"/>
+	<SubTexture name="fella_hurt.jpg" x="0" y="0" width="200" height="321"/>
+</TextureAtlas>
