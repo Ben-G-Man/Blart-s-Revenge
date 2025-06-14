@@ -44,6 +44,11 @@ public class Shooting : MonoBehaviour
     if (Physics.Raycast(ray, out RaycastHit hit, shootingDistance))
     {
       hitPoint = hit.point;
+      // Hit fella
+      if (hit.transform.gameObject.TryGetComponent<CheckShooted>(out CheckShooted c))
+      {
+        c.SetShooted();
+      }
     }
     else
     {
