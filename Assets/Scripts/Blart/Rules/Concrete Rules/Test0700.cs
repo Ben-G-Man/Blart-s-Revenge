@@ -7,4 +7,10 @@ public class Test0700 : IRule
   {
     return MallStateDTO.timeInSeconds > 25200;
   }
+
+  public override string GetText()
+  {
+    return "Uhhh nobody in mall after 0700 :)";
+  }
 }
+

@@ -66,21 +66,6 @@ public class RuleManager : MonoBehaviour
     return violations;
   }
 
-  public float GetPayDock()
-  {
-    float percentageDocked = 0f;
-
-    foreach (IRule rule in rules)
-    {
-      if (!rule.CheckRuleBroken())
-      {
-        percentageDocked += rule.weight;
-      }
-    }
-
-    return Mathf.Clamp01(percentageDocked);
-  }
-
   private void StartFirstShift()
   {
     MallStateDTO.timeInSeconds = 21600; // I.e., 06:00

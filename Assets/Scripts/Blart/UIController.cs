@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +11,9 @@ public class UIController : MonoBehaviour
   public Sprite[] clockStages;
 
   public GameObject rulesList;
+
+  public GameObject[] tickets;
+  public Text[] ticketText;
 
   void Update()
   {
@@ -121,6 +120,27 @@ public class UIController : MonoBehaviour
       else
       {
         Debug.LogWarning("Warning! No rules list game object!");
+      }
+    }
+
+    if (rulesList.activeSelf)
+    {
+      UpdateRuleTickets();
+    }
+  }
+
+  private void UpdateRuleTickets()
+  {
+    for (int ruleNum = 0; ruleNum < RuleManager.instance.rules.Length; ruleNum++)
+    {
+      if (tickets.Length > ruleNum && ticketText.Length > ruleNum)
+      {
+        ticketText[ruleNum].text = RuleManager.instance.rules[ruleNum].GetText();
+        tickets[ruleNum].SetActive(RuleManager.instance.rules[ruleNum].CheckRuleBroken());
+      }
+      else
+      {
+        Debug.LogWarning("Warning! No entry in the rule ticket sprite or rule text list for rule number " + ruleNum);
       }
     }
   }
