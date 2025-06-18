@@ -8,6 +8,7 @@ public static class MallStateDTO
   public static bool running = false;
   public static float timeInSeconds = 21600;
   public static int trashCount = 0;
+  public static bool isPaused = false;
 
   public enum Phase
   {

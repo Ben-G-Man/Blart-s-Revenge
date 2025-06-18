@@ -14,10 +14,13 @@ public class UIController : MonoBehaviour
   public Sprite[] idStates;
   public Sprite[] clockStages;
 
+  public GameObject rulesList;
+
   void Update()
   {
     UpdateClock();
     UpdateId();
+    UpdateRulesList();
   }
 
   private void UpdateClock()
@@ -94,5 +97,31 @@ public class UIController : MonoBehaviour
     int displayHour = hours % 12;
     if (displayHour == 0) displayHour = 12;
     return $"{displayHour:D2}:{minutes:D2} {period}";
+  }
+
+  private void UpdateRulesList()
+  {
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+      if (rulesList)
+      {
+        if (rulesList.activeSelf)
+        {
+          rulesList.SetActive(false);
+          MallStateDTO.isPaused = false;
+          Time.timeScale = 1f;
+        }
+        else
+        {
+          rulesList.SetActive(true);
+          MallStateDTO.isPaused = true;
+          Time.timeScale = 0.25f;
+        }
+      }
+      else
+      {
+        Debug.LogWarning("Warning! No rules list game object!");
+      }
+    }
   }
 }

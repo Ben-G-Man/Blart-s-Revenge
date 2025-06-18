@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
   public float smokeFadeTime = 0.4f;
   void Update()
   {
-    if (Input.GetMouseButtonDown(0))
+    if (Input.GetMouseButtonDown(0) && !MallStateDTO.isPaused)
     {
       Shoot();
     }

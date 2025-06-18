@@ -24,7 +24,7 @@ public class SegwaySoundController : MonoBehaviour
 
   private void UpdatePower(float input)
   {
-    if (input == 0f)
+    if (input == 0f || MallStateDTO.isPaused)
     {
       power -= powerPerSecond * Time.deltaTime;
     }
