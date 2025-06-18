@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SegwayController : MonoBehaviour
 {
-    Vector3 moveInput;
-
-    Rigidbody rb;
 
     public float moveMult = 5;
     public float tiltRate = 1;
@@ -14,18 +11,21 @@ public class SegwayController : MonoBehaviour
     public float maxTurnRate = 10;
     public float initTurnVel = 1;
 
-
-    public float moveThresh = 2;
     public Vector2 maxMoveAngle = new Vector2(25f, 25f);
+    public float jumpForce = 1000;
+    public float maxVelocity = 5f;
 
     public Transform handle;
     Quaternion initRotation;
 
     Vector2 velocity = new Vector2(0,0);
-    public float maxVelocity = 5f;
 
     float rotationY = 0f;
     float rotationYVelocity = 0f;
+    Vector3 moveInput;
+
+    Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,12 @@ public class SegwayController : MonoBehaviour
     void Update()
     {
         moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        rb.MovePosition(rb.position + velocity.x * Time.deltaTime * transform.forward);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+        }
     }
 
     void FixedUpdate()
@@ -48,7 +54,7 @@ public class SegwayController : MonoBehaviour
         velocity.x = Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity);
 
         Debug.DrawRay(rb.position, velocity.x * transform.forward, Color.red);
-        rb.MovePosition(rb.position + velocity.x * Time.fixedDeltaTime * transform.forward);
+        // rb.MovePosition(rb.position + velocity.x * Time.fixedDeltaTime * transform.forward);
 
         // Quaternion newRotation = Quaternion.Euler(0, moveInput.x * turnRate * Time.fixedDeltaTime, 0);
         float thisrotationY = moveInput.x * turnRateVel * Time.fixedDeltaTime;
@@ -58,7 +64,7 @@ public class SegwayController : MonoBehaviour
         if (Mathf.Abs(rotationYVelocity) < 0.0001) rotationYVelocity = 0;
         rotationYVelocity = Mathf.Clamp(rotationYVelocity, -maxTurnRate, maxTurnRate);
         rotationY += rotationYVelocity;
-        Debug.Log(rotationYVelocity);
+        // Debug.Log(rotationYVelocity);
         Quaternion thisRotation = Quaternion.AngleAxis(rotationYVelocity, Vector3.up);
         transform.rotation *= thisRotation;
 
