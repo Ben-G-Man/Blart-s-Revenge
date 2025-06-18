@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4566996119659827320}
   - component: {fileID: 9164869133290204824}
   - component: {fileID: 7595814137769519100}
+  - component: {fileID: 3026099949635630913}
   m_Layer: 0
   m_Name: Blart
   m_TagString: Untagged
@@ -102,7 +103,6 @@ MonoBehaviour:
   shootingDistance: 100
   muzzleFlashPrefab: {fileID: 1292185871346470672, guid: 8231c3831a9279b41b7a64ca69ff477c, type: 3}
   smokeQuadPrefab: {fileID: 1292185871346470672, guid: 7d5fd349c7314314a87c3610fbba572d, type: 3}
-  fireSoundSource: {fileID: 4566996119659827320}
   fireSound: {fileID: 8300000, guid: 05d640039e492554a8af07c529ae2dc8, type: 3}
   smokeLifetime: 0.5
   smokeFadeTime: 0.4
@@ -324,6 +324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 120
+--- !u!114 &3026099949635630913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20052875801682717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503af3e27e49eb4c9792085d501765a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 4566996119659827320}
 --- !u!1 &168763428976143610
 GameObject:
   m_ObjectHideFlags: 0

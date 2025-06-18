@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
   public GameObject[] tickets;
   public Text[] ticketText;
 
+  public AudioClip toggleSound;
+
   void Update()
   {
     UpdateClock();
@@ -104,6 +106,8 @@ public class UIController : MonoBehaviour
     {
       if (rulesList)
       {
+        BlartSounds.instance.source.PlayOneShot(toggleSound);
+
         if (rulesList.activeSelf)
         {
           rulesList.SetActive(false);

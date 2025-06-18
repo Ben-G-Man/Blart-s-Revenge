@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SegwaySoundController : MonoBehaviour
 {
   public AudioSource source;
   private float power = 0;
-  private float powerPerSecond = 1f;
+  private readonly float powerPerSecond = 1f;
 
   void Start()
   {

@@ -9,7 +9,6 @@ public class Shooting : MonoBehaviour
   [Header("Effects")]
   public GameObject muzzleFlashPrefab;
   public GameObject smokeQuadPrefab;
-  public AudioSource fireSoundSource;
   public AudioClip fireSound;
   public float smokeLifetime = 0.5f;
   public float smokeFadeTime = 0.4f;
@@ -23,9 +22,9 @@ public class Shooting : MonoBehaviour
 
   void Shoot()
   {
-    if (fireSoundSource && fireSound)
+    if (BlartSounds.instance.source && fireSound)
     {
-      fireSoundSource.PlayOneShot(fireSound);
+      BlartSounds.instance.source.PlayOneShot(fireSound);
     }
     else
     {

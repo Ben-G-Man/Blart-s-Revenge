@@ -752,6 +752,7 @@ MonoBehaviour:
   - {fileID: 2688858695551124645}
   - {fileID: 1678880325234446732}
   - {fileID: 5358814159153689461}
+  toggleSound: {fileID: 8300000, guid: 94e9c17516f8c244fa377d7fa524accb, type: 3}
 --- !u!1 &5878043029418389439
 GameObject:
   m_ObjectHideFlags: 0
