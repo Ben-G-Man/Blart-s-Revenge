@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,20 @@ public class UIController : MonoBehaviour
   public Text[] ticketText;
 
   public AudioClip toggleSound;
+
+  private static UIController instance;
+
+  void Start()
+  {
+    instance = this;
+  }
+
+  public static void CloseClipboard()
+  {
+    instance.rulesList.SetActive(false);
+    MallStateDTO.isPaused = false;
+    Time.timeScale = 1f;
+  }
 
   void Update()
   {
@@ -102,7 +117,7 @@ public class UIController : MonoBehaviour
 
   private void UpdateRulesList()
   {
-    if (Input.GetKeyDown(KeyCode.R))
+    if (Input.GetKeyDown(KeyCode.R) && !ClosingAnimController.instance.animPlaying)
     {
       if (rulesList)
       {

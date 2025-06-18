@@ -15,7 +15,8 @@ public static class MallStateDTO
     FIRST_SHIFT,
     LUNCH_BREAK,
     SECOND_SHIFT,
-    BLART_O_CLOCK
+    BLART_O_CLOCK,
+    START
   }
 
   public static Phase GetPhase()
@@ -29,7 +30,7 @@ public static class MallStateDTO
     {
       return Phase.LUNCH_BREAK;
     }
-    else if (time >= 46800 && time < 61200)
+    else if (time >= 46800 && time < 68400)
     {
       return Phase.SECOND_SHIFT;
     }
