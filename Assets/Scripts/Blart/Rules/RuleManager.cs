@@ -12,7 +12,7 @@ public class RuleManager : MonoBehaviour
   [HideInInspector]
   private static IRule[] allRules;
   [HideInInspector]
-  public IRule[] rules = {null, null, null, null};
+  public IRule[] rules = { null, null, null, null };
 
   public float timeScale = 120f;
 
@@ -31,7 +31,7 @@ public class RuleManager : MonoBehaviour
 
   private void ChooseRules()
   {
-    rules[0] = new Test0700();
+    rules[0] = new CapacityRule(10);
     rules[1] = new Test0730();
     rules[2] = new Test0800();
     rules[3] = new Test0830();
@@ -64,6 +64,13 @@ public class RuleManager : MonoBehaviour
     }
 
     return violations;
+  }
+
+  public int GetCustomerCount()
+  {
+    int customerCount = GameObject.FindGameObjectsWithTag("Customer").Length;
+    Debug.Log("There are " + customerCount + " customers in the mall.");
+    return customerCount;
   }
 
   private void StartFirstShift()
